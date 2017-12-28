@@ -1,6 +1,6 @@
-package com.zane.dao;
+package com.zane.xunwu.dao;
 
-import com.zane.pojo.BannerItem;
+import com.zane.xunwu.pojo.BannerItem;
 
 public interface BannerItemMapper {
     int deleteByPrimaryKey(Integer id);

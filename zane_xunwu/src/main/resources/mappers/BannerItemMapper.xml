@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zane.dao.BannerItemMapper">
-  <resultMap id="BaseResultMap" type="com.zane.pojo.BannerItem">
+<mapper namespace="com.zane.xunwu.dao.BannerItemMapper">
+  <resultMap id="BaseResultMap" type="com.zane.xunwu.pojo.BannerItem">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="img_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -25,7 +25,7 @@
     delete from banner_item
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zane.pojo.BannerItem">
+  <insert id="insert" parameterType="com.zane.xunwu.pojo.BannerItem">
     insert into banner_item (id, img_id, key_word, 
       type, delete_time, banner_id, 
       update_time)
@@ -33,7 +33,7 @@
       #{type,jdbcType=TINYINT}, #{deleteTime,jdbcType=INTEGER}, #{bannerId,jdbcType=INTEGER}, 
       #{updateTime,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.zane.pojo.BannerItem">
+  <insert id="insertSelective" parameterType="com.zane.xunwu.pojo.BannerItem">
     insert into banner_item
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -82,7 +82,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zane.pojo.BannerItem">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zane.xunwu.pojo.BannerItem">
     update banner_item
     <set>
       <if test="imgId != null">
@@ -106,7 +106,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zane.pojo.BannerItem">
+  <update id="updateByPrimaryKey" parameterType="com.zane.xunwu.pojo.BannerItem">
     update banner_item
     set img_id = #{imgId,jdbcType=INTEGER},
       key_word = #{keyWord,jdbcType=VARCHAR},

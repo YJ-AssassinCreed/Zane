@@ -1,6 +1,6 @@
-package com.zane.dao;
+package com.zane.xunwu.dao;
 
-import com.zane.pojo.Image;
+import com.zane.xunwu.pojo.Image;
 
 public interface ImageMapper {
     int deleteByPrimaryKey(Integer id);

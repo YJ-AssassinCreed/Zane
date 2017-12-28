@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zane.dao.ImageMapper">
-  <resultMap id="BaseResultMap" type="com.zane.pojo.Image">
+<mapper namespace="com.zane.xunwu.dao.BannerMapper">
+  <resultMap id="BaseResultMap" type="com.zane.xunwu.pojo.Banner">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="url" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="from" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="description" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="delete_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="update_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, url, from, delete_time, update_time
+    id, name, description, delete_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from image
+    from banner
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from image
+    delete from banner
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zane.pojo.Image">
-    insert into image (id, url, from, 
+  <insert id="insert" parameterType="com.zane.xunwu.pojo.Banner">
+    insert into banner (id, name, description, 
       delete_time, update_time)
-    values (#{id,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{from,jdbcType=TINYINT}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{deleteTime,jdbcType=INTEGER}, #{updateTime,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.zane.pojo.Image">
-    insert into image
+  <insert id="insertSelective" parameterType="com.zane.xunwu.pojo.Banner">
+    insert into banner
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="url != null">
-        url,
+      <if test="name != null">
+        name,
       </if>
-      <if test="from != null">
-        from,
+      <if test="description != null">
+        description,
       </if>
       <if test="deleteTime != null">
         delete_time,
@@ -52,11 +52,11 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="url != null">
-        #{url,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="from != null">
-        #{from,jdbcType=TINYINT},
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
       </if>
       <if test="deleteTime != null">
         #{deleteTime,jdbcType=INTEGER},
@@ -66,14 +66,14 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zane.pojo.Image">
-    update image
+  <update id="updateByPrimaryKeySelective" parameterType="com.zane.xunwu.pojo.Banner">
+    update banner
     <set>
-      <if test="url != null">
-        url = #{url,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="from != null">
-        from = #{from,jdbcType=TINYINT},
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
       </if>
       <if test="deleteTime != null">
         delete_time = #{deleteTime,jdbcType=INTEGER},
@@ -84,10 +84,10 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zane.pojo.Image">
-    update image
-    set url = #{url,jdbcType=VARCHAR},
-      from = #{from,jdbcType=TINYINT},
+  <update id="updateByPrimaryKey" parameterType="com.zane.xunwu.pojo.Banner">
+    update banner
+    set name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
       delete_time = #{deleteTime,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

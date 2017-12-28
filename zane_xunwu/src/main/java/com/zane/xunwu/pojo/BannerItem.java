@@ -1,4 +1,4 @@
-package com.zane.pojo;
+package com.zane.xunwu.pojo;
 
 import lombok.Builder;
 import lombok.Data;
