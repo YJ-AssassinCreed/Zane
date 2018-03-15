@@ -19,7 +19,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring-boot.version>1.5.9.RELEASE</spring-boot.version>
+		<spring-boot.version>1.5.10.RELEASE</spring-boot.version>
 	</properties>
 
 	<dependencies>
@@ -34,7 +34,13 @@
 			<version>${spring-boot.version}</version>
 			<optional>true</optional>
 		</dependency>
-        <dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/springloaded -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>springloaded</artifactId>
+			<version>1.2.8.RELEASE</version>
+		</dependency>
+		<dependency>
 			<groupId>com.zane</groupId>
 			<artifactId>zane_oss</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
