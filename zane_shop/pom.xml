@@ -19,7 +19,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring-boot.version>1.5.10.RELEASE</spring-boot.version>
+		<spring-boot.version>2.0.0.RELEASE</spring-boot.version>
 	</properties>
 
 	<dependencies>
@@ -30,11 +30,13 @@
 			<optional>true</optional>
 			<scope>true</scope>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>com.zane</groupId>
 			<artifactId>zane_oss</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
         </dependency>
+        -->
 	</dependencies>
 
 	<build>

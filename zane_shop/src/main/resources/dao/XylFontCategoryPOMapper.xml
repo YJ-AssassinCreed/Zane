@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zane.shop.dao.XylFontCategoryPOMapper">
+  <resultMap id="BaseResultMap" type="XylFontCategoryPO">
+    <constructor>
+      <idArg column="fcid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fcname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="pic_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="parent_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="is_leafnode" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sort_order" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="operator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    fcid, fcname, pic_url, parent_id, is_leafnode, sort_order, operator, create_time, 
+    update_time
+  </sql>
+  <select id="selectCategoryChildrenByParentId" resultMap="BaseResultMap" parameterType="int">
+      SELECT
+        <include refid="Base_Column_List"/>
+      FROM
+        xyl_font_category
+      WHERE parent_id = #{parentId}
+  </select>
+</mapper>
