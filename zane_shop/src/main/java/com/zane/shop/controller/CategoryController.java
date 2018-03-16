@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @desc 首页
  **/
 @Controller
-@RequestMapping
-public class IndexController {
+@RequestMapping("/api/category")
+public class CategoryController {
 
     @Autowired
     private XylFontCategoryPOMapper xylFontCategoryPOMapper;
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     @ResponseBody
     public  String index(){
+
         System.out.println(xylFontCategoryPOMapper.selectCategoryChildrenByParentId(0).size()+"====");
         System.out.println(xylFontCategoryPOMapper.selectCategoryChildrenByParentId(0).get(0));
         return "ok";
