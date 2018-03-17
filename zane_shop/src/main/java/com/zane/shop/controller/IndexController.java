@@ -16,7 +16,7 @@ public class IndexController {
     @RequestMapping("/index")
     @ResponseBody
     public  String index(){
-
+        System.out.printf("ssssss");
         return "ok";
     }
 }
