@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zane.shop.dao.XylFontCategoryAttrPOMapper">
+  <resultMap id="BaseResultMap" type="com.zane.shop.po.XylFontCategoryAttrPO">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fcid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fcname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="bcid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="bcname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="attr_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="attr_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="attr_val_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="attr_val_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, fcid, fcname, bcid, bcname, attr_id, attr_name, attr_val_id, attr_val_name
+  </sql>
+  <select id="queryCategoryAttrByBcidListAndFcid"  resultMap="BaseResultMap">
+    select
+      <include refid="Base_Column_List" />
+    from
+      xyl_font_category_attr
+    where
+    bcid in
+    <foreach collection="bcidList" index="index" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    and  fcid=#{fcid}
+  </select>
+
+</mapper>

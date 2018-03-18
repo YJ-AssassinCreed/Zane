@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zane.shop.dao.XylProductAttrPOMapper">
+  <resultMap id="BaseResultMap" type="com.zane.shop.po.XylProductAttrPO">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="bcid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="product_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="attr_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="attr_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="attr_value_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, bcid, product_id, attr_id, attr_name, attr_value_name
+  </sql>
+
+  <select id="queryProductIdsByAttrAndBcidList"  resultType="String">
+    SELECT
+    product_id
+    FROM
+    xyl_product_attr
+    WHERE
+    bcid in
+    <foreach collection="bcidList" index="index" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    <if  test="attrSql != null and attrSql !=''">
+      ${attrSql}
+    </if>
+  </select>
+</mapper>

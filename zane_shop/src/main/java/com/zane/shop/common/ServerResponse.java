@@ -11,7 +11,6 @@ import java.io.Serializable;
  * @create 2018-03-15 17:15
  * @desc 统一Api返回对象
  **/
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter
 public class ServerResponse<T> implements Serializable{
 
