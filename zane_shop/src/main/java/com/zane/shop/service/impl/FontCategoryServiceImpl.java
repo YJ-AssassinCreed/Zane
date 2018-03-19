@@ -65,7 +65,6 @@ public class FontCategoryServiceImpl implements IFontCategoryService {
                 categoryVo.setFcid(fontCategory.getFcid());
                 categoryVo.setFcname(fontCategory.getFcname());
                 categoryVo.setPicUrl(fontCategory.getPicUrl());
-                categoryVo.setSortOrder(fontCategory.getSortOrder());
                 if(fontCategory.getIsLeafnode()==0){
                     List<CategoryVo> subCategoryList = Lists.newArrayList();
                     categoryVo.setSubCategoryList(findChildCategory(subCategoryList,fontCategory.getFcid()));
@@ -99,7 +98,6 @@ public class FontCategoryServiceImpl implements IFontCategoryService {
         if(xylProductPOList.size()>0){
             for(XylProductPO xylProductPO : xylProductPOList){
                 ProductVo productVo = new ProductVo();
-                productVo.setCategoryId(xylProductPO.getBcid());
                 productVo.setProductId(xylProductPO.getProductId());
                 productVo.setProductName(xylProductPO.getName());
                 productVo.setPrice(xylProductPO.getPrice());

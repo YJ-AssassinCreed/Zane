@@ -19,12 +19,15 @@
     fcid, fcname, pic_url, parent_id, is_leafnode, sort_order, operator, create_time, 
     update_time
   </sql>
-  <select id="selectCategoryChildrenByParentId" parameterType="int" resultMap="BaseResultMap">
+  <select id="queryCategoryChildrenByParentId" parameterType="int" resultMap="BaseResultMap">
       SELECT
         <include refid="Base_Column_List" />
       FROM
         xyl_font_category
-      WHERE parent_id = #{parentId}
+      WHERE
+        parent_id = #{parentId}
+      ORDER BY
+        sort_order
   </select>
   <select id="queryBaseCategoryIdByFontCategoryId" parameterType="int" resultType="int">
       SELECT
