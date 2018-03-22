@@ -74,9 +74,11 @@
         <!--<table tableName="xyl_font_category" domainObjectName="XylFontCategoryPO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!--<table tableName="xyl_product" domainObjectName="XylProductPO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
         <!-- <table tableName="xyl_font_category_attr" domainObjectName="XylFontCategoryAttrPO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-         <table tableName="xyl_product_attr" domainObjectName="XylProductAttrPO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!-- <table tableName="xyl_product_attr" domainObjectName="XylProductAttrPO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--  <table tableName="xyl_product_desc_pic" domainObjectName="XylProductDescPicPO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <table tableName="xyl_product_pic" domainObjectName="XylProductPicPO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
 
-         <!-- geelynote mybatis插件的搭建 -->
+        <!-- geelynote mybatis插件的搭建 -->
     </context>
 </generatorConfiguration>

@@ -8,4 +8,6 @@ import java.util.List;
 public interface XylProductPOMapper {
 
     List<XylProductPO> queryProductListByProductIds(@Param("productIdList") List<String> productIdList);
+
+    XylProductPO queryProductByProductId(String productId);
 }

@@ -33,5 +33,12 @@
         #{item}
       </foreach>
   </select>
-
+  <select id="queryProductByProductId"  parameterType="String" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    xyl_product
+    WHERE
+    product_id = #{productId}
+  </select>
 </mapper>

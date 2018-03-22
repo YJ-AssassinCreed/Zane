@@ -1,6 +1,5 @@
 package com.zane.shop.service.impl;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.google.common.collect.Lists;
 import com.zane.shop.common.ServerResponse;
 import com.zane.shop.dao.XylFontCategoryAttrPOMapper;
@@ -17,9 +16,14 @@ import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
+
+/**
+ * @author Administrator
+ * @create 2018-03-20 11:48
+ * @desc 前台类目服务实现类
+ **/
+
 @Service("IFontCategoryService")
 public class FontCategoryServiceImpl implements IFontCategoryService {
 
@@ -78,6 +82,7 @@ public class FontCategoryServiceImpl implements IFontCategoryService {
     public ServerResponse getProductListByCategoryId(Integer fcid){
 
         List<ProductVo> resultList = Lists.newArrayList();
+        //要对bcidList进行空判断
         List<Integer> bcidList = xylFontCategoryPOMapper.queryBaseCategoryIdByFontCategoryId(fcid);
         List<XylFontCategoryAttrPO> xylFontCategoryAttrList= xylFontCategoryAttrPOMapper.queryCategoryAttrByBcidListAndFcid(bcidList,fcid);
         String attrSql = null;
@@ -99,7 +104,7 @@ public class FontCategoryServiceImpl implements IFontCategoryService {
             for(XylProductPO xylProductPO : xylProductPOList){
                 ProductVo productVo = new ProductVo();
                 productVo.setProductId(xylProductPO.getProductId());
-                productVo.setProductName(xylProductPO.getName());
+                productVo.setTitle(xylProductPO.getName());
                 productVo.setPrice(xylProductPO.getPrice());
                 productVo.setOriginPrice(xylProductPO.getOriginPrice());
                 productVo.setSmallPic(xylProductPO.getSmallPic());
